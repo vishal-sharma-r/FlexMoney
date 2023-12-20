@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { apiConnector } from "../operations/apiconnector";
 const User = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,11 +24,12 @@ const User = () => {
     e.preventDefault();
     console.log(formData);
     try {
-      // const response = await axios.post('your-api-endpoint', formData);
-      // console.log(response.data); // Handle the response accordingly
+      const response = await apiConnector("POST", formData);
+      console.log(response.data);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
+
     setFormData({
       name: "",
       age: "",

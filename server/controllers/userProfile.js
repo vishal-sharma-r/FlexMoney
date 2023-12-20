@@ -5,7 +5,8 @@ exports.userProfile = async (req, res) => {
   try {
     // Basic validations
     const { name, age, selectedBatch, phoneNumber, payment } = req.body;
-    if ((!name || !age || !selectedBatch || !phoneNumber, !payment)) {
+    console.log(req.body);
+    if ((!name || !age || !selectedBatch || !phoneNumber)) {
       return res
         .status(400)
         .json({ error: "Please provide all required information." });
